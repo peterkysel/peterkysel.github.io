@@ -1,0 +1,17 @@
+# Build output
+dist/
+
+# Dependencies
+node_modules/
+
+# Temp / cache
+.vite-temp/
+node_modules/.tmp/
+*.local
+
+# Claude backups
+.claude/claude_backup/
+
+# OS
+.DS_Store
+Thumbs.db
