@@ -1,5 +1,5 @@
 <template>
-  <main class="p-8">
-    <h1 class="text-4xl font-bold">Contact</h1>
-  </main>
+  <div class="min-h-screen flex items-center justify-center bg-dark">
+    <h1 class="font-raleway font-extrabold text-4xl text-white">Contact</h1>
+  </div>
 </template>

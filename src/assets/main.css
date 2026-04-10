@@ -1,1 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&family=IBM+Plex+Mono:wght@400;600;700&display=swap');
 @import 'tailwindcss';
+
+@theme {
+  --font-raleway: 'Raleway', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --color-brand: #3f8e00;
+  --color-brand-border: #62ba1b;
+  --color-dark: #080808;
+  --color-dark-nav: #1b1b1b;
+  --color-muted: #9c9c9c;
+  --color-card-border: #484848;
+}

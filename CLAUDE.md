@@ -24,11 +24,19 @@ npm run format     # Prettier over src/
 - `src/assets/main.css` — Tailwind entry (`@import "tailwindcss"`)
 - Single `tsconfig.json` extending `@vue/tsconfig/tsconfig.dom.json` (no project references)
 
+## Styling
+
+**Tailwind CSS is the primary and preferred technology for all styling.** Do not write raw CSS unless absolutely necessary.
+
+- **Tailwind v4** — configured via `@tailwindcss/vite` Vite plugin, no `tailwind.config.js` needed.
+- Entry point: `src/assets/main.css` with `@import "tailwindcss"`.
+- Design tokens (colors, fonts, spacing) are defined via the `@theme` directive in `src/assets/main.css`, per Tailwind v4 docs.
+- Use Tailwind utility classes directly in Vue templates. Avoid `<style>` blocks unless there is no Tailwind equivalent.
+
 ## Tooling
 
 - **Formatting**: Prettier runs automatically via a PostToolUse hook after every Edit/Write. No manual formatting needed.
 - **Package manager**: npm
-- **Tailwind**: v4 — configured via `@tailwindcss/vite` Vite plugin, no `tailwind.config.js` needed. Entry point is `src/assets/main.css` with `@import "tailwindcss"`.
 - **ESLint**: flat config (`eslint.config.ts`), covers `.ts` and `.vue` files.
 
 ## TypeScript Setup Notes
