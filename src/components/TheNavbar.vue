@@ -2,8 +2,19 @@
   <nav
     class="fixed top-0 left-0 right-0 z-50 grid grid-cols-3 items-center px-12 h-[70px] bg-[#1b1b1b]"
   >
-    <div />
-    <div class="flex justify-center gap-[70px]">
+    <!-- Hamburger (mobile only) -->
+    <button
+      class="md:hidden flex flex-col justify-center gap-[5px] w-8 h-8"
+      aria-label="Open menu"
+      @click="isOpen = true"
+    >
+      <span class="block h-[2px] w-6 bg-white rounded" />
+      <span class="block h-[2px] w-6 bg-white rounded" />
+      <span class="block h-[2px] w-6 bg-white rounded" />
+    </button>
+
+    <!-- Desktop nav links (hidden on mobile) -->
+    <div class="hidden md:flex justify-center gap-[70px]">
       <RouterLink
         to="/about"
         class="font-mono text-sm tracking-[0.14px] text-muted transition-colors hover:text-white"
@@ -19,6 +30,9 @@
         Contact
       </RouterLink>
     </div>
+
+    <!-- Spacer (desktop) / empty (mobile) -->
+    <div class="hidden md:block" />
 
     <!-- Social icons -->
     <div class="flex items-center justify-end gap-4">
@@ -63,4 +77,54 @@
       </a>
     </div>
   </nav>
+
+  <!-- Mobile full-screen overlay -->
+  <Teleport to="body">
+    <div
+      v-if="isOpen"
+      class="fixed inset-0 z-[100] bg-[#1b1b1b] flex flex-col items-center pt-32 gap-10"
+    >
+      <!-- Close button -->
+      <button
+        class="absolute top-5 left-12 text-muted hover:text-white transition-colors"
+        aria-label="Close menu"
+        @click="isOpen = false"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+        >
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      <RouterLink
+        to="/about"
+        class="font-raleway font-extrabold text-3xl text-muted hover:text-white transition-colors"
+        active-class="text-white"
+        @click="isOpen = false"
+      >
+        About
+      </RouterLink>
+      <RouterLink
+        to="/contact"
+        class="font-raleway font-extrabold text-3xl text-muted hover:text-white transition-colors"
+        active-class="text-white"
+        @click="isOpen = false"
+      >
+        Contact
+      </RouterLink>
+    </div>
+  </Teleport>
 </template>
+
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const isOpen = ref(false)
+</script>
