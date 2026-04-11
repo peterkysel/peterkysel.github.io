@@ -24,6 +24,13 @@ npm run format     # Prettier over src/
 - `src/assets/main.css` — Tailwind entry (`@import "tailwindcss"`)
 - Single `tsconfig.json` extending `@vue/tsconfig/tsconfig.dom.json` (no project references)
 
+## Vue Component Conventions
+
+- **Always use `<script setup lang="ts">`** — the Composition API with script setup is the only accepted style. Never use Options API or the classic `<script>` block.
+- Reactive state: `ref()` for primitives, `reactive()` for objects when appropriate.
+- Computed values: `computed()`.
+- Components without any logic may omit the `<script>` block entirely.
+
 ## Styling
 
 **Tailwind CSS is the primary and preferred technology for all styling.** Do not write raw CSS unless absolutely necessary.
